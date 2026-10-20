@@ -1,0 +1,9 @@
+#Detyra 1-Instalimi i mjeteve te punes
+**Studenti:** Eulina Bakija
+### Kontrolli i Mjedisit:
+-Node.js
+-NPM
+-Git
+-Angular CLI
+###Screenshot i Terminalit:
+![Terminal Screenshot](terminal.png) 
