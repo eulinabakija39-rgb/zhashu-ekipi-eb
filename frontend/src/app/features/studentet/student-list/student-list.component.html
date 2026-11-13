@@ -1,0 +1,45 @@
+<p-toast></p-toast>
+<p-confirmDialog></p-confirmDialog>
+
+<div class="page-header flex flex-column md:flex-row md:align-items-center md:justify-content-between gap-3">
+  <div>
+    <h1>Studentët</h1>
+    <p>Lista e studentëve të regjistruar</p>
+  </div>
+  <p-button label="Shto student" icon="pi pi-plus" severity="secondary" routerLink="/studentet/shto"></p-button>
+</div>
+
+<div class="card">
+  <p-table [value]="studentet" [loading]="loading" [paginator]="true" [rows]="5" styleClass="p-datatable-sm"
+           responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>ID</th>
+        <th>Emri</th>
+        <th>Mbiemri</th>
+        <th>Email</th>
+        <th class="text-right">Veprime</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-student>
+      <tr>
+        <td>{{ student.id }}</td>
+        <td>{{ student.emri }}</td>
+        <td>{{ student.mbiemri }}</td>
+        <td>{{ student.email }}</td>
+        <td class="text-right white-space-nowrap">
+          <p-button icon="pi pi-eye" [rounded]="true" [text]="true" [routerLink]="['/studentet', student.id]"></p-button>
+          <p-button icon="pi pi-trash" [rounded]="true" [text]="true" severity="danger"
+                    (onClick)="fshi(student)"></p-button>
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="5" class="text-center p-4">Nuk ka studentë.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

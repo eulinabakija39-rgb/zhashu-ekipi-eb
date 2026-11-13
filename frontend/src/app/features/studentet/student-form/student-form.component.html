@@ -1,0 +1,36 @@
+<div class="page-header">
+  <h1>Shto student</h1>
+  <p>Plotësoni të dhënat dhe ruani</p>
+</div>
+
+<div class="card form-card">
+  <form [formGroup]="form" (ngSubmit)="ruaj()" class="flex flex-column gap-3">
+
+    @if (errorMessage) {
+      <p-message severity="error" [text]="errorMessage"></p-message>
+    }
+
+    <div class="flex flex-column gap-2">
+      <label for="emri">Emri</label>
+      <input pInputText id="emri" formControlName="emri" [class.ng-dirty]="invalid('emri')" />
+      @if (invalid('emri')) { <small class="p-error">Emri është i detyrueshëm</small> }
+    </div>
+
+    <div class="flex flex-column gap-2">
+      <label for="mbiemri">Mbiemri</label>
+      <input pInputText id="mbiemri" formControlName="mbiemri" [class.ng-dirty]="invalid('mbiemri')" />
+      @if (invalid('mbiemri')) { <small class="p-error">Mbiemri është i detyrueshëm</small> }
+    </div>
+
+    <div class="flex flex-column gap-2">
+      <label for="email">Email</label>
+      <input pInputText id="email" type="email" formControlName="email" [class.ng-dirty]="invalid('email')" />
+      @if (invalid('email')) { <small class="p-error">Shkruani një email të vlefshëm</small> }
+    </div>
+
+    <div class="flex gap-2 justify-content-end mt-2">
+      <p-button label="Anulo" severity="secondary" [outlined]="true" routerLink="/studentet"></p-button>
+      <p-button type="submit" label="Ruaj" icon="pi pi-check" [loading]="saving"></p-button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,14 @@
+<div class="page-header">
+  <h1>Detajet e studentit</h1>
+  <p>ID: {{ id }}</p>
+</div>
+
+@if (student) {
+  <p-card [header]="student.emri + ' ' + student.mbiemri" styleClass="detail-card">
+    <p class="m-0"><i class="pi pi-envelope mr-2"></i>{{ student.email }}</p>
+  </p-card>
+} @else if (notFound) {
+  <p>Studenti nuk u gjet.</p>
+}
+
+<p-button class="block mt-3" label="Kthehu te lista" icon="pi pi-arrow-left" [text]="true" routerLink="/studentet"></p-button>

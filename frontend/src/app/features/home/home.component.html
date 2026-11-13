@@ -1,0 +1,18 @@
+<section class="hero page-header">
+  <h1>Mirë se vini në Sistemin Universitar</h1>
+  <p>Shabllon për projektet: Angular 17 · PrimeNG · PrimeFlex · Node.js/Express</p>
+</section>
+
+<div class="grid">
+  @for (m of modulet; track m.link) {
+    <div class="col-12 md:col-4">
+      <p-card styleClass="h-full module-card" [routerLink]="m.link">
+        <div class="flex flex-column align-items-center text-center gap-2">
+          <i [class]="m.ikona + ' text-4xl text-primary'"></i>
+          <h3 class="m-0">{{ m.titulli }}</h3>
+          <span class="text-color-secondary">{{ m.pershkrimi }}</span>
+        </div>
+      </p-card>
+    </div>
+  }
+</div>
